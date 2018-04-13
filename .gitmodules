@@ -1,0 +1,3 @@
+[submodule "tv-subtitle-ocr"]
+	path = tv-subtitle-ocr
+	url = git@github.com:HapsHapsHaps/tv-subtitle-ocr.git
