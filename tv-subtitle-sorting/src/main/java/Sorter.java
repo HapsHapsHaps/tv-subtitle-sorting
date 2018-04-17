@@ -4,6 +4,7 @@ import dk.kb.tvsubtitleocr.lib.frameextraction.IFrameExtractionProcessor;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -48,6 +49,17 @@ public class Sorter {
         changeDecisionButton.addActionListener(e -> onDecisionChange());
 
         positiveButton.addActionListener(e -> onPositive());
+
+        topPanel.registerKeyboardAction(e -> onNegative(), KeyStroke.getKeyStroke(KeyEvent.VK_3, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        topPanel.registerKeyboardAction(e -> onDecisionChange(), KeyStroke.getKeyStroke(KeyEvent.VK_2, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        topPanel.registerKeyboardAction(e -> onPositive(), KeyStroke.getKeyStroke(KeyEvent.VK_1, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
+
+        //contentPane.registerKeyboardAction(e -> onCancel(), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
+
+        //contentPane.registerKeyboardAction(e -> onCancel(), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
 
         frame.setContentPane(this.topPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
